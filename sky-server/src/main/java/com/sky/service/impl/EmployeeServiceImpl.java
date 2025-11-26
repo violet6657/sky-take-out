@@ -76,12 +76,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setIdNumber(employeeDTO.getIdNumber());
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
         employee.setStatus(StatusConstant.ENABLE);
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
+//        employee.setCreateTime(LocalDateTime.now());
+//        employee.setUpdateTime(LocalDateTime.now());
         //todo 设置创建人和修改人
         try {
-            employee.setCreateUser(BaseContext.getCurrentId());
-            employee.setUpdateUser(BaseContext.getCurrentId());
+//            employee.setCreateUser(BaseContext.getCurrentId());
+//            employee.setUpdateUser(BaseContext.getCurrentId());
             employeeMapper.insert(employee);
         } catch (Exception ex) {
             throw new RuntimeException(ex);
@@ -105,8 +105,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee=Employee.builder()
                 .id(id)
                 .status(status)
-                .updateTime(LocalDateTime.now())
-                .updateUser(updateUser)
+//                .updateTime(LocalDateTime.now())
+//                .updateUser(updateUser)
                 .build();
         employeeMapper.update(employee);
     }
@@ -128,8 +128,8 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .phone(employeeDTO.getPhone())
                 .sex(employeeDTO.getSex())
                 .idNumber(employeeDTO.getIdNumber())
-                .updateTime(LocalDateTime.now())
-                .updateUser(BaseContext.getCurrentId())
+//                .updateTime(LocalDateTime.now())
+//                .updateUser(BaseContext.getCurrentId())
                 .build();
         employeeMapper.update(employee);
     }
